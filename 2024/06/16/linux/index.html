@@ -1,0 +1,422 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>linux | Strong's Blog</title><meta name="author" content="StrongLee"><meta name="copyright" content="StrongLee"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Linux 手册">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux">
+<meta property="og:url" content="https://str0nglee.github.io/2024/06/16/linux/index.html">
+<meta property="og:site_name" content="Strong&#39;s Blog">
+<meta property="og:description" content="Linux 手册">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://avatars.githubusercontent.com/Str0ngLee">
+<meta property="article:published_time" content="2024-06-16T08:25:24.000Z">
+<meta property="article:modified_time" content="2026-06-16T08:28:12.554Z">
+<meta property="article:author" content="StrongLee">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/Str0ngLee"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "linux",
+  "url": "https://str0nglee.github.io/2024/06/16/linux/",
+  "image": "https://avatars.githubusercontent.com/Str0ngLee",
+  "datePublished": "2024-06-16T08:25:24.000Z",
+  "dateModified": "2026-06-16T08:28:12.554Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "StrongLee",
+      "url": "https://str0nglee.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://str0nglee.github.io/2024/06/16/linux/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'linux',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://avatars.githubusercontent.com/Str0ngLee" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Strong's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">linux</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">linux</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-06-16T08:25:24.000Z" title="发表于 2024-06-16 16:25:24">2024-06-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-16T08:28:12.554Z" title="更新于 2026-06-16 16:28:12">2026-06-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="📌-模块一：Linux-系统基础与进程管理（高频核心）"><a href="#📌-模块一：Linux-系统基础与进程管理（高频核心）" class="headerlink" title="📌 模块一：Linux 系统基础与进程管理（高频核心）"></a>📌 模块一：Linux 系统基础与进程管理（高频核心）</h2><h3 id="1-核心命令与肌肉记忆"><a href="#1-核心命令与肌肉记忆" class="headerlink" title="1. 核心命令与肌肉记忆"></a>1. 核心命令与肌肉记忆</h3><ul>
+<li><p><strong>文件与目录操作：</strong></p>
+<ul>
+<li><p><code>cd -</code>：切换回上一次所在的目录（切错目录时极其有用）。</p>
+</li>
+<li><p><code>ls -lah</code>：查看当前目录下所有文件的详细信息（包括隐藏文件和大小）。</p>
+</li>
+<li><p><code>mkdir -p /data/nginx/logs</code>：递归创建多级目录。</p>
+</li>
+<li><p><code>cp -a source dest</code>：归档复制，连同文件属性（权限、时间等）一起复制。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>文件查看与编辑：</strong></p>
+<ul>
+<li><p><code>vim</code> 三板斧：打开文件 ➡ 按 <code>i</code> 进入编辑 ➡ 按 <code>Esc</code> 退出编辑 ➡ 输入 <code>:wq</code> 保存退出（放弃修改输入 <code>:q!</code>）。</p>
+</li>
+<li><p><code>tail -f /var/log/nginx/error.log</code>：<strong>（运维核心技能）</strong> 实时滚动查看日志最新内容。</p>
+</li>
+<li><p><code>grep -i &quot;error&quot; app.log</code>：在日志中不区分大小写查找 “error” 关键字。</p>
+</li>
+<li><p><code>find / -name &quot;*.conf&quot;</code>：全盘查找后缀为 <code>.conf</code> 的文件。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>系统排查三板斧（性能优化&#x2F;故障排查）：</strong></p>
+<ul>
+<li><p><code>top</code> 或 <code>htop</code>：查看系统整体 CPU、内存负载及当前消耗资源最高的进程。</p>
+</li>
+<li><p><code>df -h</code>：查看磁盘空间占用情况，防止磁盘满了导致服务崩溃。</p>
+</li>
+<li><p><code>free -h</code>：查看当前内存使用及剩余情况（关注 <code>available</code> 才是真实可用内存）。</p>
+</li>
+<li><p><code>ps -ef | grep mysql</code>：查看 MySQL 进程是否存在、获取其进程号 (PID)。</p>
+</li>
+<li><p><code>kill -9 PID</code>：强行杀死指定的进程（生产环境慎用，优先使用常规停止命令）。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-用户与权限管理"><a href="#2-用户与权限管理" class="headerlink" title="2. 用户与权限管理"></a>2. 用户与权限管理</h3><ul>
+<li><p><code>chmod 755 script.sh</code>：赋予脚本所有者“读写执行”权限，所属组和其他人“读与执行”权限。</p>
+</li>
+<li><p><code>chown -R nginx:nginx /var/www/html</code>：递归修改目录的所有者和所属组为 <code>nginx</code>。</p>
+</li>
+</ul>
+<h3 id="🧠-回忆快问快答（自测专用）"><a href="#🧠-回忆快问快答（自测专用）" class="headerlink" title="🧠 回忆快问快答（自测专用）"></a>🧠 回忆快问快答（自测专用）</h3><ol>
+<li><p><strong>问：</strong> 服务突然卡死，第一步看什么？</p>
+<ul>
+<li><strong>答：</strong> 先用 <code>top</code> 看 CPU&#x2F;内存，再用 <code>df -h</code> 看磁盘是不是满了，同时用 <code>tail -f</code> 盯着服务日志。</li>
+</ul>
+</li>
+<li><p><strong>问：</strong> 修改了一个配置文件，为了保险起见，修改前应该做什么？</p>
+<ul>
+<li><strong>答：</strong> 必须先备份！例如 <code>cp nginx.conf nginx.conf.bak_$(date +%F)</code>。</li>
+</ul>
+</li>
+</ol>
+<h2 id="📌-模块二：Nginx-服务部署与反向代理（Web核心）"><a href="#📌-模块二：Nginx-服务部署与反向代理（Web核心）" class="headerlink" title="📌 模块二：Nginx 服务部署与反向代理（Web核心）"></a>📌 模块二：Nginx 服务部署与反向代理（Web核心）</h2><h3 id="1-核心概念理解"><a href="#1-核心概念理解" class="headerlink" title="1. 核心概念理解"></a>1. 核心概念理解</h3><ul>
+<li><p><strong>反向代理（Reverse Proxy）：</strong> 客户端直接访问 Nginx（暴露公网），Nginx 作为“代理人”去访问内网的真实后端服务（如 Java、Go、PHP），然后把结果返回给客户端。保护内网安全，方便做负载均衡。</p>
+</li>
+<li><p><strong>负载均衡（Load Balancing）：</strong> 当后端有多台服务器时，Nginx 将请求按一定规则分发。</p>
+<ul>
+<li><p><code>轮询 (Round Robin)</code>：默认，按时间顺序逐一分发。</p>
+</li>
+<li><p><code>权重 (Weight)</code>：根据服务器性能分配比例，性能好的机器权重高。</p>
+</li>
+<li><p><code>ip_hash</code>：每个访客固定访问一个后端服务器，解决 Session 共享问题。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-极简-Nginx-核心配置模板"><a href="#2-极简-Nginx-核心配置模板" class="headerlink" title="2. 极简 Nginx 核心配置模板"></a>2. 极简 Nginx 核心配置模板</h3><p>配置文件通常在 <code>/etc/nginx/nginx.conf</code> 或 <code>/etc/nginx/conf.d/</code> 目录下。</p>
+<p>Nginx</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"># 1. 定义后端服务器集群（负载均衡）</span><br><span class="line">upstream my_backend &#123;</span><br><span class="line">    server 192.168.1.10:8080 weight=3; # 权重高</span><br><span class="line">    server 192.168.1.11:8080 weight=1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  localhost; # 或者是公司的域名</span><br><span class="line"></span><br><span class="line">    # 2. 静态资源托管</span><br><span class="line">    location / &#123;</span><br><span class="line">        root   /var/www/html;</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    # 3. 反向代理接口转发（匹配所有以 /api/ 开头的请求）</span><br><span class="line">    location /api/ &#123;</span><br><span class="line">        proxy_pass http://my_backend/; # 转发给上面的后端集群</span><br><span class="line">        proxy_set_header Host $host;</span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    # 4. 错误页面配置</span><br><span class="line">    error_page   500 502 503 504  /50x.html;</span><br><span class="line">    location = /50x.html &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Nginx-常用命令"><a href="#3-Nginx-常用命令" class="headerlink" title="3. Nginx 常用命令"></a>3. Nginx 常用命令</h3><ul>
+<li><p><code>nginx -t</code>：<strong>（极其重要）</strong> 修改配置后，先检查语法是否正确，看到 <code>syntax is ok</code> 才能重启。</p>
+</li>
+<li><p><code>systemctl nginx reload</code>：热加载配置（平滑重启），不中断现有线上用户的访问。</p>
+</li>
+<li><p><code>systemctl restart nginx</code>：强制重启 Nginx 服务。</p>
+</li>
+</ul>
+<h3 id="🧠-回忆快问快答（自测专用）-1"><a href="#🧠-回忆快问快答（自测专用）-1" class="headerlink" title="🧠 回忆快问快答（自测专用）"></a>🧠 回忆快问快答（自测专用）</h3><ol>
+<li><p><strong>问：</strong> 访问网页显示 <code>502 Bad Gateway</code>，一般是谁的问题？怎么排查？</p>
+<ul>
+<li><strong>答：</strong> 通常是 Nginx 后面挂接的<strong>后端服务（如 Tomcat&#x2F;Docker容器&#x2F;Java程序）挂了</strong>或者端口没开。排查思路：先看 Nginx 错误日志，再去确认后端服务状态和端口连通性。</li>
+</ul>
+</li>
+<li><p><strong>问：</strong> 访问网页显示 <code>403 Forbidden</code>，是什么原因？</p>
+<ul>
+<li><strong>答：</strong> 权限问题。要么是 Nginx 没权限读取静态资源目录（检查 <code>chmod</code>），要么是 SELinux 限制，或者是配置里写了 <code>deny</code> 拒绝了该 IP。</li>
+</ul>
+</li>
+</ol>
+<h2 id="📌-模块三：Shell-脚本自动化与定时任务（效能利器）"><a href="#📌-模块三：Shell-脚本自动化与定时任务（效能利器）" class="headerlink" title="📌 模块三：Shell 脚本自动化与定时任务（效能利器）"></a>📌 模块三：Shell 脚本自动化与定时任务（效能利器）</h2><h3 id="1-Shell-语法高频速记"><a href="#1-Shell-语法高频速记" class="headerlink" title="1. Shell 语法高频速记"></a>1. Shell 语法高频速记</h3><ul>
+<li><p><strong>变量定义：</strong> <code>PID=$(pgrep nginx)</code>（把命令执行结果赋值给变量，注意等号两边不能有空格）。</p>
+</li>
+<li><p><strong>条件判断（注意方括号两边的空格）：</strong></p>
+<p>  Bash</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if [ -z &quot;$PID&quot; ]; then</span><br><span class="line">    echo &quot;Nginx is stopped!&quot;</span><br><span class="line">else</span><br><span class="line">    echo &quot;Nginx is running with PID: $PID&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>常用判断条件：</strong> <code>-d</code>（目录是否存在）、<code>-f</code>（文件是否存在）、<code>-z</code>（字符串是否为空）。</p>
+</li>
+</ul>
+<h3 id="2-生产级：自动化监控与服务自愈脚本模板"><a href="#2-生产级：自动化监控与服务自愈脚本模板" class="headerlink" title="2. 生产级：自动化监控与服务自愈脚本模板"></a>2. 生产级：自动化监控与服务自愈脚本模板</h3><p>创建一个 <code>monitor.sh</code> 脚本，用来监控 Nginx，挂了自动拉起。</p>
+<p>Bash</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"># ----------------------------------------------------</span><br><span class="line"># 脚本功能：监控 Nginx 状态，发现挂掉则自动拉起并记录日志</span><br><span class="line"># ----------------------------------------------------</span><br><span class="line"></span><br><span class="line"># 定义日志路径</span><br><span class="line">LOG_FILE=&quot;/var/log/nginx_monitor.log&quot;</span><br><span class="line"></span><br><span class="line"># 检测 Nginx 进程是否存在</span><br><span class="line"># systemctl is-active nginx 也可以，这里用 ps 匹配更通用</span><br><span class="line">if ! ps -ef | grep nginx | grep -v grep &gt; /dev/null; then</span><br><span class="line">    # 记录当前时间到日志</span><br><span class="line">    echo &quot;[$(date &#x27;+%Y-%m-%d %H:%M:%S&#x27;)] 警告：发现 Nginx 服务已挂，正在尝试重启...&quot; &gt;&gt; $LOG_FILE</span><br><span class="line">    </span><br><span class="line">    # 尝试拉起服务</span><br><span class="line">    systemctl start nginx</span><br><span class="line">    </span><br><span class="line">    # 再次检查是否成功</span><br><span class="line">    if ps -ef | grep nginx | grep -v grep &gt; /dev/null; then</span><br><span class="line">        echo &quot;[$(date &#x27;+%Y-%m-%d %H:%M:%S&#x27;)] 成功：Nginx 服务已成功重启！&quot; &gt;&gt; $LOG_FILE</span><br><span class="line">    else</span><br><span class="line">        echo &quot;[$(date &#x27;+%Y-%m-%d %H:%M:%S&#x27;)] 错误：Nginx 重启失败，需要人工介入！&quot; &gt;&gt; $LOG_FILE</span><br><span class="line">    fi</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Crontab-定时任务配置"><a href="#3-Crontab-定时任务配置" class="headerlink" title="3. Crontab 定时任务配置"></a>3. Crontab 定时任务配置</h3><p>输入 <code>crontab -e</code> 进入编辑：</p>
+<ul>
+<li><p><strong>语法格式：</strong> <code>分 时 日 月 周 /path/to/command</code></p>
+</li>
+<li><p><strong>高频示例：</strong></p>
+<ul>
+<li><p><code>*/5 * * * * /bin/bash /root/monitor.sh</code>：<strong>每隔 5 分钟</strong>执行一次监控脚本。</p>
+</li>
+<li><p><code>0 2 * * * /bin/bash /data/backup.sh</code>：<strong>每天凌晨 2:00</strong> 执行备份脚本。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="🧠-回忆快问快答（自测专用）-2"><a href="#🧠-回忆快问快答（自测专用）-2" class="headerlink" title="🧠 回忆快问快答（自测专用）"></a>🧠 回忆快问快答（自测专用）</h3><ol>
+<li><p><strong>问：</strong> 手动执行脚本成功，但放进 <code>crontab</code> 定时任务里就不执行或报错，为什么？</p>
+<ul>
+<li><strong>答：</strong> <strong>环境变量&#x2F;绝对路径问题</strong>。<code>crontab</code> 执行时的环境变量非常干净。解决方法：脚本里的命令一律用绝对路径（如 <code>/usr/bin/tar</code>），或者在脚本开头加上 <code>source /etc/profile</code>。</li>
+</ul>
+</li>
+</ol>
+<h2 id="📌-模块四：Docker-容器技术（微服务必备）"><a href="#📌-模块四：Docker-容器技术（微服务必备）" class="headerlink" title="📌 模块四：Docker 容器技术（微服务必备）"></a>📌 模块四：Docker 容器技术（微服务必备）</h2><h3 id="1-核心概念记忆"><a href="#1-核心概念记忆" class="headerlink" title="1. 核心概念记忆"></a>1. 核心概念记忆</h3><ul>
+<li><p><strong>镜像 (Image)：</strong> 静态的只读模板（相当于类，或者软件安装包）。</p>
+</li>
+<li><p><strong>容器 (Container)：</strong> 镜像运行后的实例（相当于对象，或者跑起来的软件）。容器之间是相互隔离的。</p>
+</li>
+</ul>
+<h3 id="2-高频必会命令"><a href="#2-高频必会命令" class="headerlink" title="2. 高频必会命令"></a>2. 高频必会命令</h3><ul>
+<li><p><strong>镜像管理：</strong></p>
+<ul>
+<li><p><code>docker pull nginx:alpine</code>：从远程仓库拉取精简版 Nginx 镜像。</p>
+</li>
+<li><p><code>docker images</code>：查看本地已有的镜像。</p>
+</li>
+<li><p><code>docker rmi 镜像ID</code>：删除本地镜像。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>容器生命周期管理：</strong></p>
+<ul>
+<li><p><code>docker run -d --name my_web -p 8080:80 -v /data/html:/usr/share/nginx/html nginx</code></p>
+<ul>
+<li><p><code>-d</code>：后台运行。</p>
+</li>
+<li><p><code>--name</code>：指定容器名为 <code>my_web</code>。</p>
+</li>
+<li><p><code>-p 8080:80</code>：将宿主机的 8080 端口映射到容器内部的 80 端口。</p>
+</li>
+<li><p><code>-v</code>：把宿主机的目录挂载到容器内部（数据持久化，修改宿主机文件容器内立即生效）。</p>
+</li>
+</ul>
+</li>
+<li><p><code>docker ps</code>：查看当前<strong>正在运行</strong>的容器。</p>
+</li>
+<li><p><code>docker ps -a</code>：查看<strong>所有</strong>容器（包括已停止的）。</p>
+</li>
+<li><p><code>docker stop/start/restart 容器ID或名称</code>：停止&#x2F;启动&#x2F;重启容器。</p>
+</li>
+<li><p><code>docker rm -f 容器ID</code>：强制删除正在运行的容器。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>容器排查二板斧（入职天天用）：</strong></p>
+<ul>
+<li><p><code>docker logs -f --tail 100 容器名</code>：查看某个容器的最后 100 行日志并持续滚动。</p>
+</li>
+<li><p><code>docker exec -it 容器名 /bin/bash</code>（或 <code>/bin/sh</code>）：<strong>进入容器内部</strong>的黑窗口进行操作。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="📌-模块五：MySQL-数据库管理（数据命脉）"><a href="#📌-模块五：MySQL-数据库管理（数据命脉）" class="headerlink" title="📌 模块五：MySQL 数据库管理（数据命脉）"></a>📌 模块五：MySQL 数据库管理（数据命脉）</h2><h3 id="1-高频-SQL-增删改查基操"><a href="#1-高频-SQL-增删改查基操" class="headerlink" title="1. 高频 SQL 增删改查基操"></a>1. 高频 SQL 增删改查基操</h3><ul>
+<li><p>连接数据库：<code>mysql -u root -p</code></p>
+</li>
+<li><p>查库：<code>SHOW DATABASES;</code></p>
+</li>
+<li><p>用库：<code>USE demo_db;</code></p>
+</li>
+<li><p>查表数据：<code>SELECT * FROM users WHERE status = 1 ORDER BY create_time DESC LIMIT 10;</code></p>
+</li>
+<li><p>更新数据：<code>UPDATE users SET status = 0 WHERE id = 5;</code>（<strong>生产环境修改数据一定要带 WHERE 条件！</strong>）</p>
+</li>
+</ul>
+<h3 id="2-数据备份与恢复"><a href="#2-数据备份与恢复" class="headerlink" title="2. 数据备份与恢复"></a>2. 数据备份与恢复</h3><ul>
+<li><p><strong>物理&#x2F;逻辑备份（使用 mysqldump）：</strong></p>
+<ul>
+<li>备份整个数据库：<code>mysqldump -u root -p demo_db &gt; /data/backup/demo_db_$(date +%F).sql</code></li>
+</ul>
+</li>
+<li><p><strong>数据恢复：</strong></p>
+<ul>
+<li><code>mysql -u root -p demo_db &lt; /data/backup/demo_db_2026-06-11.sql</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="3-主从复制基本原理（面试必问）"><a href="#3-主从复制基本原理（面试必问）" class="headerlink" title="3. 主从复制基本原理（面试必问）"></a>3. 主从复制基本原理（面试必问）</h3><ul>
+<li><p><strong>核心逻辑：</strong> 靠 <strong>Binlog（二进制日志）</strong> 实现。</p>
+<ol>
+<li><p><strong>主库（Master）</strong>：把所有修改数据库的语句记录到 <code>Binlog</code> 中。</p>
+</li>
+<li><p><strong>从库（Slave）</strong>：通过 <code>I/O 线程</code> 连接主库，读取 <code>Binlog</code> 并写入到本地的 <code>Relay Log（中继日志）</code> 中。</p>
+</li>
+<li><p><strong>从库（Slave）</strong>：通过 <code>SQL 线程</code> 读取 <code>Relay Log</code>，把里面的 SQL 语句在本地重新执行一遍（重放），从而保持数据一致。</p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="📌-模块六：网络协议与排查（底层支撑）"><a href="#📌-模块六：网络协议与排查（底层支撑）" class="headerlink" title="📌 模块六：网络协议与排查（底层支撑）"></a>📌 模块六：网络协议与排查（底层支撑）</h2><h3 id="1-核心状态码与网络工具"><a href="#1-核心状态码与网络工具" class="headerlink" title="1. 核心状态码与网络工具"></a>1. 核心状态码与网络工具</h3><ul>
+<li><p><strong>常见 HTTP 状态码：</strong></p>
+<ul>
+<li><p><code>200 OK</code>：成功。</p>
+</li>
+<li><p><code>301/302</code>：永久&#x2F;临时重定向。</p>
+</li>
+<li><p><code>403 Forbidden</code>：服务器拒绝请求（通常是权限问题）。</p>
+</li>
+<li><p><code>404 Not Found</code>：找不到资源（路径写错了）。</p>
+</li>
+<li><p><code>502 Bad Gateway</code>：网关错误（后端服务挂了）。</p>
+</li>
+<li><p><code>504 Gateway Timeout</code>：网关超时（后端处理太慢，Nginx 等不及了）。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>网络排查常用工具：</strong></p>
+<ul>
+<li><p><code>ping 114.114.114.114</code>：测试网络连通性。</p>
+</li>
+<li><p><code>telnet 192.168.1.10 3306</code>：<strong>（极其高频）</strong> 测试某台服务器的某个端口是否开放、是否能连通。</p>
+</li>
+<li><p><code>curl -I https://www.google.com</code>：仅查看网站返回的 HTTP 响应头状态码。</p>
+</li>
+<li><p><code>netstat -tpln</code> 或 <code>ss -tpln</code>：查看当前系统本地开启了哪些端口，分别被哪些进程占用了。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="🛠️-终极自我检验：入职模拟大通关"><a href="#🛠️-终极自我检验：入职模拟大通关" class="headerlink" title="🛠️ 终极自我检验：入职模拟大通关"></a>🛠️ 终极自我检验：入职模拟大通关</h2><blockquote>
+<p><strong>挑战：</strong> 尝试不看文档，在你的本地虚拟机上独立完成以下链条。如果能顺利跑通，说明你完全达到了初级运维入职的实操标准：</p>
+</blockquote>
+<ol>
+<li><p>【Docker】用 Docker 起一个 MySQL 容器，映射端口为 <code>3306</code>，在里面建一个库。</p>
+</li>
+<li><p>【MySQL】在库里建一张临时表，手动插入一条测试数据，并用 <code>mysqldump</code> 成功备份出来。</p>
+</li>
+<li><p>【Nginx】在本地安装 Nginx，配置反向代理，使得访问虚拟机的 <code>80</code> 端口时，自动转发到你某个特定服务的端口上。</p>
+</li>
+<li><p>【Shell】写一个 Shell 脚本，每隔 1 分钟检测一次 Nginx 的状态。如果主动把 Nginx 停掉，看脚本是否能在 1 分钟内自动把它拉起来。</p>
+</li>
+</ol>
+<p><strong>💡 复习寄语：</strong> 运维的核心是<strong>谨慎与规范</strong>。命令记不住可以随时查这个 <code>.md</code> 文档，但“改配置先备份、动生产先敲 <code>nginx -t</code>、看懂日志再排查”的习惯，必须刻进骨子里。祝你顺利入职，破冰成功！</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://str0nglee.github.io">StrongLee</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://str0nglee.github.io/2024/06/16/linux/">https://str0nglee.github.io/2024/06/16/linux/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://str0nglee.github.io" target="_blank">Strong's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%8A%80%E6%9C%AF/">技术</a></div><div class="post-share"><div class="social-share" data-image="https://avatars.githubusercontent.com/Str0ngLee" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2023/10/20/vscode-linux-remote/" title="使用 Visual Studio Code 作为 Linux 的基础工具"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">使用 Visual Studio Code 作为 Linux 的基础工具</div></div><div class="info-2"><div class="info-item-1">适用场景由于代码的编译环境都是在虚拟机完成，所以源码一般都是放在虚拟机环境。当需要修改源码时，要有一款好用的编辑器，VSCode 功能强大，非常适合。但是在虚拟机安装会出现不兼容的情况，可以考虑采用 Windows 安装 VSCode 远程连接虚拟机的使用方式。 下面就展开如何使用 VSCode 远程连接虚拟机（Ubuntu 系统）。注意： 当前 Ubuntu 版本为 22.04.3-desktop-amd64。 1. Windows 端 VSCode 安装远程登录插件Remote-Development 插件，会自动安装其他的 Remote 插件，其中会包含 Remote-SSH 插件。    ⚠️ 注意：在 Windows 端下载的插件不会与虚拟机共享，其他插件也需要根据情况再安装。  2. 配置 Remote-SSH 插件安装完成后点击左下角的远程连接按钮：   选择连接到主机：   选择添加 SSH 主机：   输入需要远程的 IP 地址和用户名，例如 ssh liyongqiang@192.162.153.112：   选择保存配置文件的位置：   config 文件内...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/Str0ngLee" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">StrongLee</div><div class="author-info-description">记录技术成长，分享生活热爱</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Str0ngLee"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Str0ngLee" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:str0nglee@example.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">🎉 欢迎来到我的博客！这里记录了我的技术笔记和生活感悟。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8C-%E6%A8%A1%E5%9D%97%E4%B8%80%EF%BC%9ALinux-%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E4%B8%8E%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%EF%BC%88%E9%AB%98%E9%A2%91%E6%A0%B8%E5%BF%83%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">📌 模块一：Linux 系统基础与进程管理（高频核心）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4%E4%B8%8E%E8%82%8C%E8%82%89%E8%AE%B0%E5%BF%86"><span class="toc-number">1.1.</span> <span class="toc-text">1. 核心命令与肌肉记忆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%94%A8%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">2. 用户与权限管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%A0-%E5%9B%9E%E5%BF%86%E5%BF%AB%E9%97%AE%E5%BF%AB%E7%AD%94%EF%BC%88%E8%87%AA%E6%B5%8B%E4%B8%93%E7%94%A8%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">🧠 回忆快问快答（自测专用）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8C-%E6%A8%A1%E5%9D%97%E4%BA%8C%EF%BC%9ANginx-%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%EF%BC%88Web%E6%A0%B8%E5%BF%83%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">📌 模块二：Nginx 服务部署与反向代理（Web核心）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3"><span class="toc-number">2.1.</span> <span class="toc-text">1. 核心概念理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9E%81%E7%AE%80-Nginx-%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%A8%A1%E6%9D%BF"><span class="toc-number">2.2.</span> <span class="toc-text">2. 极简 Nginx 核心配置模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Nginx-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">2.3.</span> <span class="toc-text">3. Nginx 常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%A0-%E5%9B%9E%E5%BF%86%E5%BF%AB%E9%97%AE%E5%BF%AB%E7%AD%94%EF%BC%88%E8%87%AA%E6%B5%8B%E4%B8%93%E7%94%A8%EF%BC%89-1"><span class="toc-number">2.4.</span> <span class="toc-text">🧠 回忆快问快答（自测专用）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8C-%E6%A8%A1%E5%9D%97%E4%B8%89%EF%BC%9AShell-%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B8%8E%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%88%E6%95%88%E8%83%BD%E5%88%A9%E5%99%A8%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">📌 模块三：Shell 脚本自动化与定时任务（效能利器）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Shell-%E8%AF%AD%E6%B3%95%E9%AB%98%E9%A2%91%E9%80%9F%E8%AE%B0"><span class="toc-number">3.1.</span> <span class="toc-text">1. Shell 语法高频速记</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%94%9F%E4%BA%A7%E7%BA%A7%EF%BC%9A%E8%87%AA%E5%8A%A8%E5%8C%96%E7%9B%91%E6%8E%A7%E4%B8%8E%E6%9C%8D%E5%8A%A1%E8%87%AA%E6%84%88%E8%84%9A%E6%9C%AC%E6%A8%A1%E6%9D%BF"><span class="toc-number">3.2.</span> <span class="toc-text">2. 生产级：自动化监控与服务自愈脚本模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Crontab-%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E9%85%8D%E7%BD%AE"><span class="toc-number">3.3.</span> <span class="toc-text">3. Crontab 定时任务配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%A0-%E5%9B%9E%E5%BF%86%E5%BF%AB%E9%97%AE%E5%BF%AB%E7%AD%94%EF%BC%88%E8%87%AA%E6%B5%8B%E4%B8%93%E7%94%A8%EF%BC%89-2"><span class="toc-number">3.4.</span> <span class="toc-text">🧠 回忆快问快答（自测专用）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8C-%E6%A8%A1%E5%9D%97%E5%9B%9B%EF%BC%9ADocker-%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF%EF%BC%88%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%BF%85%E5%A4%87%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">📌 模块四：Docker 容器技术（微服务必备）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E8%AE%B0%E5%BF%86"><span class="toc-number">4.1.</span> <span class="toc-text">1. 核心概念记忆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%AB%98%E9%A2%91%E5%BF%85%E4%BC%9A%E5%91%BD%E4%BB%A4"><span class="toc-number">4.2.</span> <span class="toc-text">2. 高频必会命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8C-%E6%A8%A1%E5%9D%97%E4%BA%94%EF%BC%9AMySQL-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%EF%BC%88%E6%95%B0%E6%8D%AE%E5%91%BD%E8%84%89%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">📌 模块五：MySQL 数据库管理（数据命脉）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%AB%98%E9%A2%91-SQL-%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E5%9F%BA%E6%93%8D"><span class="toc-number">5.1.</span> <span class="toc-text">1. 高频 SQL 增删改查基操</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D"><span class="toc-number">5.2.</span> <span class="toc-text">2. 数据备份与恢复</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%EF%BC%88%E9%9D%A2%E8%AF%95%E5%BF%85%E9%97%AE%EF%BC%89"><span class="toc-number">5.3.</span> <span class="toc-text">3. 主从复制基本原理（面试必问）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8C-%E6%A8%A1%E5%9D%97%E5%85%AD%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E4%B8%8E%E6%8E%92%E6%9F%A5%EF%BC%88%E5%BA%95%E5%B1%82%E6%94%AF%E6%92%91%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">📌 模块六：网络协议与排查（底层支撑）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A0%B8%E5%BF%83%E7%8A%B6%E6%80%81%E7%A0%81%E4%B8%8E%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7"><span class="toc-number">6.1.</span> <span class="toc-text">1. 核心状态码与网络工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9B%A0%EF%B8%8F-%E7%BB%88%E6%9E%81%E8%87%AA%E6%88%91%E6%A3%80%E9%AA%8C%EF%BC%9A%E5%85%A5%E8%81%8C%E6%A8%A1%E6%8B%9F%E5%A4%A7%E9%80%9A%E5%85%B3"><span class="toc-number">7.</span> <span class="toc-text">🛠️ 终极自我检验：入职模拟大通关</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/16/linux/" title="linux">linux</a><time datetime="2024-06-16T08:25:24.000Z" title="发表于 2024-06-16 16:25:24">2024-06-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/20/vscode-linux-remote/" title="使用 Visual Studio Code 作为 Linux 的基础工具">使用 Visual Studio Code 作为 Linux 的基础工具</a><time datetime="2023-10-20T15:30:00.000Z" title="发表于 2023-10-20 23:30:00">2023-10-20</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2022 - 2026 By StrongLee</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
